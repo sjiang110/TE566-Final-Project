@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #eab0ff}
+
+    th {
+      background-color: #bb00ff;
+      color: white;
+    }
+  </style>
+</head>
+
+
+<body>
+<h1>Inventory</h1>
+<table>
+  <tr>
+    <th>Part</th>
+    <th>Price/Unit</th>
+    <th>Quantity</th>
+    <th>Value</th>
+    <th>Re-order</th>
+  </tr>
+  {% for partname, part in inventory.parts.iteritems() %}
+  <tr>
+    <td>{{ partname|e }}</td>
+    <td>${{ part.price_per_unit|e }}</td>
+    <td>{{ part.quantity|e }}</td>
+    <td>${{ part.value|e }}</td>
+    <td>{{ part.re_order|e }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<br>
+<table>
+  <tr>
+    <th><b>Total</b></th>
+    <th>COG/Unit</th>
+    <th>Total Units that can be built from current parts</th>
+  </tr>
+  <tr>
+    <td>${{ inventory.total }}</td>
+    <td>${{ inventory.cog_per_unit }}</td>
+    <td>{{ inventory.complete_units_to_build }}</td>
+  </tr>
+</table>
+<br>
+<table>
+  <tr>
+    <th><b>Complete Units in Stock</b></th>
+    <th>Total Value</th>
+  </tr>
+  <tr>
+    <td>{{ inventory.complete_units }}</td>
+    <td>${{ inventory.complete_units_cost }}</td>
+  </tr>
+</table>
+</body>
+</html>

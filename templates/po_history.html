@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #eab0ff}
+
+    th {
+      background-color: #bb00ff;
+      color: white;
+    }
+  </style>
+</head>
+
+
+<body>
+<h1>Purchase Order History</h1>
+<table>
+  <tr>
+    <th>PO Number</th>
+    <th>Date</th>
+    <th>Supplier</th>
+    <th>Part</th>
+    <th>Quantity</th>
+    <th>Price/Part</th>
+    <th>Total</th>
+  </tr>
+  {% for po in purchase_order_history.po_events %}
+  <tr>
+    <td>{{ po.number|e }}</a></td>
+    <td>{{ po.date_paid|e }}</a></td>
+    <td>{{ po.supplier|e }}</a></td>
+    <td>{{ po.part|e }}</a></td>
+    <td>{{ po.quantity|e }}</a></td>
+    <td>${{ po.price_per_unit|e }}</a></td>
+    <td>${{ po.total|e }}</a></td>
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 375px;
+}
+h2 {
+    text-align: left;
+    padding: 8px;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+
+<body>
+<h1>Income Statement</h1>
+<h2>Sales</h2>
+<table>
+    <tr><th>Sales</th> <td>$ {{ income.sales|e }}</a></td>
+    <tr><th>COGS</th> <td>$ {{ income.cogs|e }}</a></td>
+    <tr><th>Gross Profit</th> <td>$ {{ income.gross_profit|e }}</a></td>
+</table>
+<h2>Expenses</h2>
+<table>
+    <tr><th>Payroll</th> <td>$ {{ income.payroll|e }}</a></td>
+    <tr><th>Payroll Witholding</th> <td>$ {{ income.payroll_withholding|e }}</a></td>
+    <tr><th>Bills</th> <td>$ {{ income.bills|e }}</a></td>
+    <tr><th>Annual Expenses</th> <td>$ {{ income.annual_expenses|e }}</a></td>
+    <tr><th><h3>Total Expenses</h3></th> <td>$ {{ income.expenses|e }}</a></td>
+</table>
+<br>
+<br>
+<table>
+    <tr><th>Other Income</th> <td>$ {{ income.other_income|e }}</a></td>
+    <tr><th>Operating Income</th> <td>$ {{ income.operating_income|e }}</a></td>
+    <tr><th>Income Taxes</th> <td>$ {{ income.income_taxes|e }}</a></td>
+    <tr><th>Net Income</th> <td>$ {{ income.net_income|e }}</a></td>
+</table>
+</body>
+</html>

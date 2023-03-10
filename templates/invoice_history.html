@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #eab0ff}
+
+    th {
+      background-color: #bb00ff;
+      color: white;
+    }
+  </style>
+</head>
+
+
+<body>
+<h1>Invoice History</h1>
+<table>
+  <tr>
+    <th>Invoice Number</th>
+    <th>Date</th>
+    <th>Customer</th>
+    <th>Quantity</th>
+    <th>Price/Part</th>
+    <th>Total</th>
+  </tr>
+  {% for invoice in invoice_history.invoice_events %}
+  <tr>
+    <td>{{ invoice.number|e }}</a></td>
+    <td>{{ invoice.date_paid|e }}</a></td>
+    <td>{{ invoice.customer|e }}</a></td>
+    <td>{{ invoice.quantity|e }}</a></td>
+    <td>${{ invoice.price_per_unit|e }}</a></td>
+    <td>${{ invoice.total|e }}</a></td>
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>

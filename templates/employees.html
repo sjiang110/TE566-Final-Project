@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #eab0ff}
+
+        th {
+            background-color: #bb00ff;
+            color: white;
+        }
+    </style>
+</head>
+
+
+<body>
+<h1>Employee Data</h1>
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address1</th>
+        <th>Address2</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zipcode</th>
+        <th>SSN</th>
+        <th>Witholdings</th>
+        <th>Salary</th>
+    </tr>
+    {% for employee in employees %}
+    <tr>
+        <td>{{ employee.firstname|e }}</h2></a></td>
+        <td>{{ employee.lastname|e }}</h2></a></td>
+        <td>{{ employee.address1|e }}</h2></a></td>
+        <td>{{ employee.address2|e }}</h2></a></td>
+        <td>{{ employee.city|e }}</h2></a></td>
+        <td>{{ employee.state|e }}</h2></a></td>
+        <td>{{ employee.zipcode|e }}</h2></a></td>
+        <td>{{ employee.ssn|e }}</h2></a></td>
+        <td>{{ employee.witholdings|e }}</h2></a></td>
+        <td>${{ employee.salary|e }}</h2></a></td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

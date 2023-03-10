@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #eab0ff}
+
+    th {
+      background-color: #bb00ff;
+      color: white;
+    }
+  </style>
+</head>
+
+
+<body>
+<h1>Customer Data</h1>
+<table>
+  <tr>
+    <th>Company Name</th>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zipcode</th>
+    <th>Price</th>
+  </tr>
+  {% for customer in customers %}
+  <tr>
+    <td>{{ customer.companyname|e }}</h2></a></td>
+    <td>{{ customer.lastname|e }}</h2></a></td>
+    <td>{{ customer.firstname|e }}</h2></a></td>
+    <td>{{ customer.address1|e }}</h2></a></td>
+    <td>{{ customer.address2|e }}</h2></a></td>
+    <td>{{ customer.city|e }}</h2></a></td>
+    <td>{{ customer.state|e }}</h2></a></td>
+    <td>{{ customer.zipcode|e }}</h2></a></td>
+    <td>{{ customer.price|e }}</h2></a></td>
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>

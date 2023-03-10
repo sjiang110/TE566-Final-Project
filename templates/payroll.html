@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #eab0ff}
+
+    th {
+      background-color: #bb00ff;
+      color: white;
+    }
+  </style>
+</head>
+
+
+<body>
+<h1>Payroll Payments/History</h1>
+<table>
+  <tr>
+    <th>Date Paid</th>
+    <th>Employee</th>
+    <th>Dispursement</th>
+    <th>Witholding</th>
+  </tr>
+  {% for payroll_event in payroll.payroll_events %}
+  <tr>
+    <td>{{ payroll_event.date_paid|e }}</h2></a></td>
+    <td>{{ payroll_event.lastname|e }}</h2></a></td>
+    <td>{{ "${:,.2f}".format(payroll_event.dispursement)|e }}</h2></a></td>
+    <td>{{ "${:,.2f}".format(payroll_event.witholdings)|e }}</h2></a></td>
+  </tr>
+  {% endfor %}
+</table>
+<br>
+<table>
+  <tr>
+    <th><h3>Total Dispursement</h3></th>
+    <th><h3>Total Witholding</h3></th>
+  </tr>
+  <tr>
+    <td>{{ "${:,.2f}".format(payroll.total_dispursement)|e }}</h2></a></td>
+    <td>{{ "${:,.2f}".format(payroll.total_witholdings)|e }}</h2></a></td>
+  </tr>
+</table>
+<br>
+<table>
+  <tr>
+    <th>Salary</th>
+    <th>Bounce</th>
+    <th>Federal Tax Withheld</th>
+    <th>State Tax Withheld</th>
+    <th>Social Security</th>
+    <th>Medicare</th>
+    <th>Amount Paid</th>
+  </tr>
+  {% for payroll_event in payroll.payroll_events %}
+  <tr>
+    <td>{{ payroll_event.salary|e }}</h2></a></td>
+    <td>{{ payroll_event.bounce|e }}</h2></a></td>
+    <td>{{ payroll_event.federal_tax|e }}</h2></a></td>
+    <td>{{ payroll_event.state_tax|e }}</h2></a></td>
+    <td>{{ payroll_event.social_sec_tax|e }}</h2></a></td>
+    <td>{{ payroll_event.medicare_tax|e }}</h2></a></td>
+    <td>{{ payroll_event.dispursement|e }}</h2></a></td>
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 75%;
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    td:nth-child(odd) {
+      text-align: left;
+      padding: 8px;
+    }
+    td:nth-child(even) {
+      text-align: right;
+      padding: 8px;
+    }
+  </style>
+</head>
+
+<body>
+<h1>Balance Sheet</h1>
+<table>
+  <tr>
+    <th>Assets</th>
+    <th></th>
+    <th>Liabilities & Net Worth</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Cash</td>
+    <td>$ {{ balancesheet.cash|e }}</a></td>
+    <td>Accounts Payable</td>
+    <td>$ {{ balancesheet.ap|e }}</a></td>
+  </tr>
+  <tr>
+    <td>Accounts Receivable</td>
+    <td>$ {{ balancesheet.ar|e }}</a></td>
+    <td>Notes Payable</td>
+    <td>$ {{ balancesheet.notes_payable|e }}</a></td>
+  </tr>
+  <tr>
+    <td>Inventory</td>
+    <td>$ {{ balancesheet.inventory_data.total|e }}</a></td>
+    <td>Accruals</td>
+    <td>$ {{ balancesheet.accruals|e }}</a></td>
+  </tr>
+  <tr>
+    <td>Total Current Assets</td>
+    <td>$ {{ balancesheet.total_current_assets|e }}</a></td>
+    <td>Total Current Liabilities</td>
+    <td>$ {{ balancesheet.total_current_liabilities|e }}</a></td>
+  </tr>
+  <tr></tr>
+  <tr>
+    <td>Land/Buildings</td>
+    <td>$ {{ balancesheet.lands_buildings|e }}</a></td>
+    <td>Mortgage</td>
+    <td>$ {{ balancesheet.mortgage|e }}</a></td>
+  </tr>
+  <tr>
+    <td>Equipment</td>
+    <td>$ {{ balancesheet.equipment|e }}</a></td>
+    <td>Total Long Term Debt</td>
+    <td>$ {{ balancesheet.total_long_term_debt|e }}</a></td>
+  </tr>
+  <tr>
+    <td>Furniture and Fixtures</td>
+    <td>$ {{ balancesheet.furniture_fixtures|e }}</a></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Total Fixed Assets</td>
+    <td>$ {{ balancesheet.total_fixed_assets|e }}</a></td>
+    <td>Total Liabilities</td>
+    <td>$ {{ balancesheet.total_liabilities|e }}</a></td>
+  </tr>
+  <tr>
+    <td>Total Assets</td>
+    <td>$ {{ balancesheet.total_assets|e }}</a></td>
+    <td>Net Worth</td>
+    <td>$ {{ balancesheet.net_worth|e }}</a></td>
+  </tr>
+</table>
+</body>
+</html>

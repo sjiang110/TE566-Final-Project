@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 {
+            background-color: #bb00ff;
+            color: white;
+            width: 375px;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #ba03fc}
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        form {
+            font-family: Tahoma, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: italic;
+            line-height: 24px;
+            font-weight: bold;
+            color: #bb00ff;
+            text-decoration: none;
+        }
+        input {
+            width: 375px;
+            display: block;
+            border: 1px solid #999;
+            height: 25px;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+<h1>Pay Employee</h1>
+<form method=post>
+    <dl>
+        {% for field in form %}
+        <tr>
+            <th>{{ field.label }}</th>
+            <td>{{ field }}</td>
+        </tr>
+        {% endfor %}
+    </dl>
+    <p><input type=submit value="Pay Employee">
+</form>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+</body>
+</html>

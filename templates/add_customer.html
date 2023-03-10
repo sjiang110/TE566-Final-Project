@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 {
+            background-color: #bb00ff;
+        color: white;
+            width: 375px;
+            text-align: center;
+        }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #eab0ff}
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    form {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 24px;
+  font-weight: bold;
+  color: #bb00ff;
+  text-decoration: none;
+}
+    input {
+  width: 375px;
+  display: block;
+  border: 1px solid #999;
+  height: 25px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+</style>
+</head>
+<body>
+<h1>Add Customer</h1>
+<form method=post>
+  <dl>
+    {{ form.companyname.label }} : {{ form.companyname()|safe }}
+    {{ form.firstname.label }} : {{ form.firstname()|safe }}
+    {{ form.lastname.label }} : {{ form.lastname()|safe }}
+    {{ form.address1.label }} : {{ form.address1()|safe }}
+    {{ form.address2.label }} : {{ form.address2()|safe }}
+    {{ form.city.label }} : {{ form.city()|safe }}
+    {{ form.state.label }} : {{ form.state()|safe }}
+    {{ form.zipcode.label }} : {{ form.zipcode()|safe }}
+    {{ form.price.label }} : {{ form.price()|safe }}
+  </dl>
+  <p><input type=submit value="Add Customer">
+</form>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+</body>
+</html>
